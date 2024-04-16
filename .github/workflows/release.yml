@@ -1,0 +1,17 @@
+on:
+  release:
+    types: [published]
+
+name: Release
+
+jobs:
+  get-release-version:
+    runs-on: ubuntu-latest
+    steps:
+      - id: get-release-version
+        run: |
+          appVersion=$(echo ${{ github.event.release.name }} | cut -d'v' -f 2)
+          echo "version=$appVersion" >> "$GITHUB_OUPUT"
+      - id: use-release-version
+        run: |
+          echo ${{ steps.get-release-version.outputs.version }}
