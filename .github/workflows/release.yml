@@ -16,4 +16,4 @@ jobs:
           result-encoding: string
       - id: use-release-version
         run: |
-          echo ${{ steps.get-release-version.outputs.version }}
+          echo ${{ steps.get-release-version.outputs.result }}
