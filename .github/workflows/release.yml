@@ -9,10 +9,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Hello world"
-      - id: get-release-version
-        run: |
-          appVersion=$(echo ${{ github.event.release.name }} | cut -d'v' -f 2)
-          echo "version=$appVersion" >> "$GITHUB_OUPUT"
+      - uses: actions/github-script@v7
+        id: get-release-version
+        with:
+          script: return "${{ github.event.release.name }}".substring(1)
+          result-encoding: string
       - id: use-release-version
         run: |
           echo ${{ steps.get-release-version.outputs.version }}
