@@ -8,6 +8,7 @@ jobs:
   get-release-version:
     runs-on: ubuntu-latest
     steps:
+      - run: echo "Hello world"
       - id: get-release-version
         run: |
           appVersion=$(echo ${{ github.event.release.name }} | cut -d'v' -f 2)
