@@ -3,6 +3,11 @@ builds:
   - id: "my-go-app"
     dir: go/my-app
     binary: mygoapp
+    ldflags:
+      - -w -s
+      - -X main.Number={{.Version}}
+      - -X main.Commit={{.Commit}}
+      - -X main.Date={{.Date}}
     env:
       - CGO_ENABLED=0
       - >-
