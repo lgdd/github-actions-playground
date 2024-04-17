@@ -1,8 +1,7 @@
 # yaml-language-server: $schema=https://goreleaser.com/static/schema.json
 builds:
   - id: "my-go-app"
-    main: my-app
-    dir: go
+    dir: go/my-app
     binary: mygoapp
     env:
       - CGO_ENABLED=0
