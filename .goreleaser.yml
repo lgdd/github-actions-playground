@@ -21,3 +21,5 @@ builds:
     ignore:
       - goos: windows
         goarch: arm64
+release:
+  mode: keep-existing
